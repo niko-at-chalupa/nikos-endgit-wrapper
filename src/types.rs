@@ -4,7 +4,7 @@
 use serde::Deserialize;
 
 /// API response for plugin searches.
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone, Deserialize, PartialEq)]
 pub struct Response {
     pub success: bool,
     pub data: Data,
@@ -12,13 +12,13 @@ pub struct Response {
 }
 
 /// Contains plugin search results.
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone, Deserialize, PartialEq)]
 pub struct Data {
     pub plugins: Vec<Plugin>,
 }
 
 /// A single plugin in the registry.
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone, Deserialize, PartialEq)]
 #[serde(rename_all = "camelCase")]
 pub struct Plugin {
     pub id: String,
@@ -38,15 +38,27 @@ pub struct Plugin {
     pub comment_count: u64,
     pub heat_score: u64,
     pub status: String,
+    #[serde(default)]
+    pub status_reason: Option<String>,
+    pub stability_score: u64,
     pub trust_score: u64,
+    pub quality_badge: String,
+    pub is_verified: bool,
+    pub is_featured: bool,
+    #[serde(default)]
+    pub review_build_id: Option<String>,
+    #[serde(default)]
+    pub webhook_id: Option<String>,
+    pub author_id: String,
     pub latest_version: String,
+    pub is_pre_release: bool,
     pub created_at: String,
     pub updated_at: String,
     pub author: Author,
 }
 
 /// A plugin author.
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone, Deserialize, PartialEq)]
 #[serde(rename_all = "camelCase")]
 pub struct Author {
     pub username: String,
@@ -55,7 +67,7 @@ pub struct Author {
 }
 
 /// Pagination information.
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone, Deserialize, PartialEq)]
 #[serde(rename_all = "camelCase")]
 pub struct Pagination {
     pub page: u32,
@@ -65,20 +77,20 @@ pub struct Pagination {
 }
 
 /// API response for build queries.
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone, Deserialize, PartialEq)]
 pub struct BuildResponse {
     pub success: bool,
     pub data: BuildData,
 }
 
 /// Inner data wrapper for [`BuildResponse`].
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone, Deserialize, PartialEq)]
 pub struct BuildData {
     pub builds: Vec<Build>,
 }
 
 /// A single plugin build.
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone, Deserialize, PartialEq)]
 #[serde(rename_all = "camelCase")]
 pub struct Build {
     pub build_number: u32,
