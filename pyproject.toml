@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nikos-endgit-wrapper"
+version = "0.1.0"
+description = "A Python wrapper for the Endgit API"
+authors = [
+    {name = "niko-at-chalupa"}
+]
+dependencies = [
+    "pydantic",
+    "aiohttp",
+]
+readme = "README.md"
+
+[tool.setuptools.packages.find]
+where = ["src"]

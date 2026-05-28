@@ -1,0 +1,26 @@
+# Niko's Persistent License (NPL) V1.4
+
+## In this license, "NPL" refers to this license, Niko's Persistent License.
+
+## tl;dr: You can do pretty much anything that you'd do normally with the code, except remove or change the license to anything other than a newer NPL license.
+Note: this tl;dr does NOT define the license or change its meaning in any way! The license is solely defined by everything *other* than it.
+
+This is free and unencumbered software released under the following terms.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or distribute this software, either in source code form or as a compiled binary, for any purpose, commercial or non-commercial, and by any means, subject to the following condition:
+
+## Persistence of NPL
+This software *must* remain under this license (NPL). Relicensing to a non-NPL license or removing the license file from source distributions is prohibited. This only applies to the distribution of source code, therefore binaries and downstream software do not need to comply with NPL's condition. This does not apply to later official versions of NPL; you may relicense to any newer official version of NPL as long as it is not a beta one.
+
+Note that "downstream software" refers to distinct software that uses NPL software (i.e., downstream software is defined here as software that merely interacts with NPL software through standard APIs, CLI arguments, or configuration files)
+
+Re-implementation is only 'distinct software' if it involves original creative effort. AI-generated rewrites that preserve the functional structure of this software, or simple refactors remain subject to the persistence requirement.
+
+## No Other Requirements
+The sole requirement is persistence.
+
+## Disclaimer
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+For more information, please refer to <https://niko-at-chalupa.github.io/npl-license/>
