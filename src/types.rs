@@ -54,14 +54,6 @@ pub struct Author {
     pub avatar_url: String,
 }
 
-/// The authenticated user.
-#[derive(Debug, Clone, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct User {
-    pub username: String,
-    pub display_name: String,
-}
-
 /// Pagination information.
 #[derive(Debug, Clone, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -72,54 +64,20 @@ pub struct Pagination {
     pub total_pages: u32,
 }
 
-#[derive(Debug, Clone, Deserialize)]
-pub struct DeviceCodeResponse {
-    pub device_code: String,
-    pub user_code: String,
-    pub verification_uri: String,
-    pub expires_in: u32,
-    pub interval: u32,
-}
-
-#[derive(Debug, Clone, Deserialize)]
-pub struct DeviceTokenResponse {
-    pub access_token: String,
-    pub refresh_token: String,
-    pub token_type: String,
-    pub username: String,
-}
-
-#[derive(Debug, Clone, Deserialize)]
-pub struct RefreshResponse {
-    pub access_token: String,
-    pub refresh_token: String,
-    pub username: String,
-}
-
-#[derive(Debug, Clone)]
-pub struct DeviceAuthError {
-    pub code: String,
-}
-
-impl std::fmt::Display for DeviceAuthError {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.code)
-    }
-}
-
-impl std::error::Error for DeviceAuthError {}
-
+/// API response for build queries.
 #[derive(Debug, Clone, Deserialize)]
 pub struct BuildResponse {
     pub success: bool,
     pub data: BuildData,
 }
 
+/// Inner data wrapper for [`BuildResponse`].
 #[derive(Debug, Clone, Deserialize)]
 pub struct BuildData {
     pub builds: Vec<Build>,
 }
 
+/// A single plugin build.
 #[derive(Debug, Clone, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Build {
@@ -132,6 +90,7 @@ pub struct Build {
 }
 
 impl Build {
+    /// Returns the appropriate artifact URL for the current OS.
     pub fn resolve_artifact_url(&self) -> &str {
         #[cfg(target_os = "windows")]
         if !self.artifact_url_win.is_empty() {
