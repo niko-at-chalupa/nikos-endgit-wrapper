@@ -40,17 +40,23 @@ pub struct Plugin {
     pub status: String,
     #[serde(default)]
     pub status_reason: Option<String>,
+    #[serde(default)]
     pub stability_score: u64,
     pub trust_score: u64,
+    #[serde(default)]
     pub quality_badge: String,
+    #[serde(default)]
     pub is_verified: bool,
+    #[serde(default)]
     pub is_featured: bool,
     #[serde(default)]
     pub review_build_id: Option<String>,
     #[serde(default)]
     pub webhook_id: Option<String>,
+    #[serde(default)]
     pub author_id: String,
     pub latest_version: String,
+    #[serde(default)]
     pub is_pre_release: bool,
     pub created_at: String,
     pub updated_at: String,
